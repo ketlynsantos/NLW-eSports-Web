@@ -1,4 +1,5 @@
 import './styles/main.css'
+import * as Dialog from '@radix-ui/react-dialog'
 
 import logoImg from './assets/logo-nlw.svg'
 import { GameBanner } from './components/GameBanner'
@@ -47,7 +48,24 @@ function App() {
         }) }
       </div>
 
-     <CreateAdBanner />
+      <Dialog.Root>
+        <CreateAdBanner />
+
+        {/* Permite que o conteudo dentro dele aparece em outro lugar da tela, 
+        que não esteja acoplado a essa div */}
+        <Dialog.Portal>
+            <Dialog.Overlay className="bg-black/60 inset-0 fixed"/>
+
+            <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2
+              left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-480px] shadow-lg shadow-black-25">
+              <Dialog.Title>Publique um anúncio</Dialog.Title>
+
+              <Dialog.Content>
+                asasdassdsadsa
+              </Dialog.Content>
+            </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </div>
   )
 }
